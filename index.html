@@ -1,4 +1,3 @@
-<PARSED TEXT FOR PAGE: 1 / 21>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +38,6 @@ nav {
  font-weight: bold;
  letter-spacing: 1px;
 }
-<PARSED TEXT FOR PAGE: 2 / 21>
 nav ul {
  display: flex;
  list-style: none;
@@ -78,7 +76,6 @@ main {
  justify-content: center;
  text-align: center;
 }
-<PARSED TEXT FOR PAGE: 3 / 21>
 /* ================= HOME ================= */
 .home-content {
  width: 100%;
@@ -118,7 +115,6 @@ main {
  line-height: 1.8;
  color: #c9d4df;
  font-size: 17px;
-<PARSED TEXT FOR PAGE: 4 / 21>
 }
 /* ================= EDUCATION ================= */
 .education-card {
@@ -156,7 +152,6 @@ main {
 .about-content p {
  color: #c9d4df;
  line-height: 1.9;
-<PARSED TEXT FOR PAGE: 5 / 21>
  font-size: 17px;
  margin-bottom: 20px;
 }
@@ -195,7 +190,6 @@ main {
  font-size: 19px;
  margin-bottom: 10px;
 }
-<PARSED TEXT FOR PAGE: 6 / 21>
 .skill-card p {
  color: #c9d4df;
  font-size: 14px;
@@ -234,7 +228,6 @@ main {
  border-radius: 20px;
  animation: skillFill 1.2s ease-out;
 }
-<PARSED TEXT FOR PAGE: 7 / 21>
 @keyframes skillFill {
  from {
  width: 0;
@@ -273,7 +266,6 @@ main {
 .contact-container {
  max-width: 700px;
  margin: auto;
-<PARSED TEXT FOR PAGE: 8 / 21>
  background: #0d1b2d;
  padding: 40px;
  border-radius: 18px;
@@ -313,7 +305,6 @@ main {
 footer {
  text-align: center;
  padding: 25px;
-<PARSED TEXT FOR PAGE: 9 / 21>
  background: #081525;
  color: #8ea0b3;
  font-size: 14px;
@@ -349,7 +340,6 @@ footer {
 @media (max-width: 650px) {
  nav {
  height: auto;
-<PARSED TEXT FOR PAGE: 10 / 21>
  min-height: 70px;
  padding: 15px 4%;
  flex-direction: column;
@@ -387,7 +377,6 @@ footer {
  font-size: 18px;
  }
  .home-content p {
-<PARSED TEXT FOR PAGE: 11 / 21>
  font-size: 15px;
  }
  .page-title {
@@ -423,7 +412,6 @@ footer {
  nav ul {
  gap: 10px;
  }
-<PARSED TEXT FOR PAGE: 12 / 21>
  nav ul li a {
  font-size: 13px;
  }
@@ -461,7 +449,6 @@ footer {
  <h2>
  Web/Mobile Developer / Hardware /
  BS Computer Engineering Student
-<PARSED TEXT FOR PAGE: 13 / 21>
  </h2>
  <p>
  I am a Computer Engineering student interested in
@@ -500,7 +487,6 @@ footer {
  </p>
  </div>
 </section>
-<PARSED TEXT FOR PAGE: 14 / 21>
 <section id="skills" class="page">
  <h2 class="page-title">MY SKILLS</h2>
  <div class="skills-container">
@@ -540,7 +526,6 @@ footer {
  </div>
  </div>
  </div>
-<PARSED TEXT FOR PAGE: 15 / 21>
  <div class="skill-card">
  <img src="https://uploads.onecompiler.io/442nn5q5f/1791019144209/1000014183.png"
  alt="JavaScript">
@@ -583,7 +568,6 @@ footer {
  <h3>GITHUB</h3>
  <p>
  Used for storing projects, version control,
-<PARSED TEXT FOR PAGE: 16 / 21>
  collaboration, and code management.
  </p>
  <div class="skill-level">
@@ -623,7 +607,6 @@ footer {
 <section id="projects" class="page">
  <h2 class="page-title">PROJECTS</h2>
  <div class="projects-container">
-<PARSED TEXT FOR PAGE: 17 / 21>
  <div class="project-card">
  <h3>ERECPASS-Mobile Application</h3>
  <p>
@@ -664,7 +647,6 @@ footer {
  </p>
  <p>
  <strong>PHONE:</strong><br>
-<PARSED TEXT FOR PAGE: 18 / 21>
  09927609792
  </p>
  </div>
@@ -677,90 +659,69 @@ footer {
  © 2026 JOMAR.DEV — PORTFOLIO
 </footer>
 <script>
-const pages =
- document.querySelectorAll(".page");
-const navLinks =
- document.querySelectorAll(".nav-link");
-const backButton =
- document.getElementById("backButton");
-let currentPage = "home";
-function showPage(pageId, useHistory = true) {
- const targetPage =
- document.getElementById(pageId);
- if (!targetPage) {
- return;
- }
- pages.forEach(page => {
- page.classList.remove("active");
- page.style.display = "none";
- });
- targetPage.style.display =
- pageId === "home"
- ? "flex"
- : "block";
-<PARSED TEXT FOR PAGE: 19 / 21>
- targetPage.classList.add("active");
- navLinks.forEach(link => {
- link.classList.remove("active");
- if (link.dataset.page === pageId) {
- link.classList.add("active");
- }
- });
- if (pageId === "home") {
- backButton.style.display = "none";
- } else {
- backButton.style.display = "block";
- }
- if (useHistory) {
- history.pushState(
- { page: pageId },
- "",
- "#" + pageId
- );
- }
- currentPage = pageId;
- window.scrollTo({
- top: 0,
- behavior: "smooth"
- });
-}
-navLinks.forEach(link => {
- link.addEventListener(
- "click",
- function(event) {
- event.preventDefault();
-<PARSED TEXT FOR PAGE: 20 / 21>
- const pageId =
- this.dataset.page;
- showPage(pageId);
- }
- );
-});
-backButton.addEventListener(
- "click",
- function() {
- showPage("home");
- }
-);
-window.addEventListener(
- "popstate",
- function() {
- const pageId =
- window.location.hash.substring(1)
- || "home";
- showPage(pageId, false);
- }
-);
-window.addEventListener(
- "load",
- function() {
- const pageId =
- window.location.hash.substring(1)
- || "home";
- showPage(pageId, false);
- }
-);
+(function () {
+  "use strict";
+
+  function getPageId() {
+    const id = window.location.hash.replace("#", "").trim();
+    return document.getElementById(id) ? id : "home";
+  }
+
+  function showPage(pageId, updateUrl) {
+    const targetPage = document.getElementById(pageId);
+    if (!targetPage) return;
+
+    document.querySelectorAll(".page").forEach(function (page) {
+      page.classList.remove("active");
+      page.style.display = "none";
+    });
+
+    targetPage.style.display = pageId === "home" ? "flex" : "block";
+    targetPage.classList.add("active");
+
+    document.querySelectorAll(".nav-link").forEach(function (link) {
+      link.classList.toggle("active", link.dataset.page === pageId);
+    });
+
+    const backButton = document.getElementById("backButton");
+    if (backButton) {
+      backButton.style.display = pageId === "home" ? "none" : "block";
+    }
+
+    if (updateUrl && window.location.hash !== "#" + pageId) {
+      history.pushState({ page: pageId }, "", "#" + pageId);
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.addEventListener("click", function (event) {
+    const link = event.target.closest(".nav-link");
+    if (link) {
+      event.preventDefault();
+      showPage(link.dataset.page, true);
+      return;
+    }
+
+    const backButton = event.target.closest("#backButton");
+    if (backButton) {
+      event.preventDefault();
+      showPage("home", true);
+    }
+  });
+
+  window.addEventListener("hashchange", function () {
+    showPage(getPageId(), false);
+  });
+
+  window.addEventListener("popstate", function () {
+    showPage(getPageId(), false);
+  });
+
+  window.addEventListener("DOMContentLoaded", function () {
+    showPage(getPageId(), false);
+  });
+})();
 </script>
-<PARSED TEXT FOR PAGE: 21 / 21>
 </body>
 </html>
