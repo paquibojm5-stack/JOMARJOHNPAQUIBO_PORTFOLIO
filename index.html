@@ -262,6 +262,53 @@ main {
  color: #c9d4df;
  line-height: 1.7;
 }
+/* ================= RESUME DOWNLOAD ================= */
+.resume-section {
+ max-width: 850px;
+ margin: 35px auto;
+ background: #0d1b2d;
+ padding: 35px;
+ border-radius: 18px;
+ border: 1px solid rgba(0, 217, 255, 0.2);
+ text-align: center;
+}
+.resume-section h3 {
+ color: #00d9ff;
+ margin-bottom: 15px;
+ font-size: 24px;
+}
+.resume-section p {
+ color: #c9d4df;
+ margin-bottom: 20px;
+ line-height: 1.7;
+}
+.resume-actions {
+ display: flex;
+ justify-content: center;
+ gap: 15px;
+ flex-wrap: wrap;
+}
+.resume-button {
+ display: inline-block;
+ padding: 12px 22px;
+ background: #00d9ff;
+ color: #07111f;
+ border: none;
+ border-radius: 25px;
+ text-decoration: none;
+ font-size: 15px;
+ font-weight: bold;
+ cursor: pointer;
+ transition: 0.3s;
+}
+.resume-button:hover {
+ background: #ffffff;
+ transform: translateY(-2px);
+}
+@media (max-width: 650px) {
+ .resume-section { padding: 25px 20px; }
+ .resume-button { width: 100%; }
+}
 /* ================= CONTACT ================= */
 .contact-container {
  max-width: 700px;
@@ -638,6 +685,17 @@ footer {
  </div>
  </div>
 </section>
+<section id="resume" class="page">
+ <h2 class="page-title">MY RESUME</h2>
+ <div class="resume-section">
+  <h3>Jomar John M. Paquibo</h3>
+  <p>Download or print my resume.</p>
+  <div class="resume-actions">
+   <a class="resume-button" href="Jomar_John_Paquibo_Resume.pdf" download="Jomar_John_Paquibo_Resume.pdf">DOWNLOAD RESUME</a>
+   <button class="resume-button" type="button" onclick="printResume()">PRINT RESUME</button>
+  </div>
+ </div>
+</section>
 <section id="contact" class="page">
  <h2 class="page-title">CONTACT ME</h2>
  <div class="contact-container">
@@ -722,6 +780,17 @@ footer {
     showPage(getPageId(), false);
   });
 })();
+function printResume() {
+ const resumeWindow = window.open("Jomar_John_Paquibo_Resume.pdf", "_blank");
+ if (!resumeWindow) {
+  alert("Please allow pop-ups to print the resume.");
+  return;
+ }
+ resumeWindow.onload = function () {
+  resumeWindow.focus();
+  resumeWindow.print();
+ };
+}
 </script>
 </body>
 </html>
