@@ -61,6 +61,24 @@ footer{text-align:center;padding:25px;background:#081525;color:#8ea0b3;font-size
 @media(max-width:900px){nav{padding:0 4%}nav ul{gap:18px}.skills-container,.projects-container{grid-template-columns:repeat(2,1fr)}.home-content h1{font-size:38px}}
 @media(max-width:650px){nav{height:auto;min-height:70px;padding:15px 4%;flex-direction:column;gap:12px}.logo{font-size:22px}nav ul{gap:14px;flex-wrap:wrap;justify-content:center}nav ul li a{font-size:15px;font-weight:700;text-transform:uppercase}main{padding-top:105px}.page{padding:55px 5%;min-height:calc(100vh - 105px)}.profile-wrapper{width:135px;height:135px;margin-bottom:20px}.home-content h1{font-size:30px}.home-content h2{font-size:18px}.home-content p{font-size:15px}.page-title{font-size:30px;margin-bottom:25px}.skills-container,.projects-container{grid-template-columns:1fr}.skill-card{padding:25px 18px}.skill-card p{font-size:14px}.about-content,.contact-container{padding:25px 20px}.about-content p{font-size:15px}.back-button{left:15px;bottom:15px;font-size:15px;padding:11px 19px}}
 @media(max-width:400px){nav ul{gap:10px}nav ul li a{font-size:13px}.profile-wrapper{width:125px;height:125px}.home-content h1{font-size:27px}}
+
+/* Theme switch: dark is the default; button offers the opposite mode */
+.theme-toggle{padding:9px 13px;border:1px solid #00d9ff;border-radius:22px;background:transparent;color:#00d9ff;font-weight:bold;cursor:pointer;white-space:nowrap;transition:.25s}
+.theme-toggle:hover{background:#00d9ff;color:#07111f}
+body.light-mode{background:#f3f7fc;color:#102238}
+body.light-mode nav,body.light-mode footer{background:#fff}
+body.light-mode nav{border-bottom-color:rgba(0,100,180,.18);box-shadow:0 2px 12px rgba(15,35,60,.06)}
+body.light-mode nav ul li a{color:#102238}
+body.light-mode nav ul li a:hover,body.light-mode nav ul li a.active{color:#007eaa}
+body.light-mode .home-content p,body.light-mode .about-content p,body.light-mode .skill-card p,body.light-mode .project-card p,body.light-mode .contact-container p{color:#43546a}
+body.light-mode .education-card,body.light-mode .about-content,body.light-mode .skill-card,body.light-mode .project-card,body.light-mode .contact-container{background:#fff;box-shadow:0 8px 24px rgba(15,35,60,.06)}
+body.light-mode .skill-card h3{color:#102238}
+body.light-mode .skill-level-text{color:#43546a}
+body.light-mode .skill-progress{background:#dce5ef}
+body.light-mode footer{color:#58697c}
+body.light-mode .resume-button,body.light-mode .back-button{color:#fff;background:#007eaa}
+body.light-mode .resume-button:hover,body.light-mode .back-button:hover{background:#005f83}
+@media(max-width:650px){.theme-toggle{font-size:13px;padding:7px 10px}}
 </style>
 </head>
 <body>
@@ -73,6 +91,7 @@ footer{text-align:center;padding:25px;background:#081525;color:#8ea0b3;font-size
 <li><a href="#projects" class="nav-link" data-page="projects">PROJECTS</a></li>
 <li><a href="#contact" class="nav-link" data-page="contact">CONTACT</a></li>
 </ul>
+<button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch to light mode">☀️ Light Mode</button>
 </nav>
 <main>
 <section id="home" class="page active">
@@ -176,6 +195,21 @@ navLinks.forEach(link=>link.addEventListener("click",function(event){event.preve
 backButton.addEventListener("click",()=>showPage("home"));
 window.addEventListener("popstate",()=>showPage(window.location.hash.substring(1)||"home",false));
 window.addEventListener("load",()=>showPage(window.location.hash.substring(1)||"home",false));
+const themeToggle=document.getElementById("themeToggle");
+function applyTheme(mode){
+ const isLight=mode==="light";
+ document.body.classList.toggle("light-mode",isLight);
+ themeToggle.textContent=isLight?"🌙 Dark Mode":"☀️ Light Mode";
+ themeToggle.setAttribute("aria-label",isLight?"Switch to dark mode":"Switch to light mode");
+}
+themeToggle.addEventListener("click",()=>{
+ const nextMode=document.body.classList.contains("light-mode")?"dark":"light";
+ applyTheme(nextMode);
+ try{localStorage.setItem("jomarPortfolioTheme",nextMode);}catch(error){}
+});
+let savedTheme="dark";
+try{savedTheme=localStorage.getItem("jomarPortfolioTheme")||"dark";}catch(error){}
+applyTheme(savedTheme);
 </script>
 </body>
 </html>
