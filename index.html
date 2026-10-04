@@ -5,793 +5,177 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JOMAR.DEV | Portfolio</title>
 <style>
-* {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- scroll-behavior: smooth;
-}
-body {
- font-family: Arial, Helvetica, sans-serif;
- background: #07111f;
- color: #ffffff;
- min-height: 100vh;
-}
-/* ================= NAVBAR ================= */
-nav {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 70px;
- background: #081525;
- display: flex;
- align-items: center;
- justify-content: space-between;
- padding: 0 7%;
- z-index: 1000;
- border-bottom: 1px solid rgba(0, 217, 255, 0.15);
-}
-.logo {
- color: #00d9ff;
- font-size: 25px;
- font-weight: bold;
- letter-spacing: 1px;
-}
-nav ul {
- display: flex;
- list-style: none;
- gap: 28px;
-}
-nav ul li a {
- text-decoration: none;
- color: #ffffff;
- font-size: 19px;
- font-weight: 700;
- text-transform: uppercase;
- transition: 0.3s;
- cursor: pointer;
-}
-nav ul li a:hover,
-nav ul li a.active {
- color: #00d9ff;
-}
-/* ================= MAIN ================= */
-main {
- padding-top: 70px;
- min-height: 100vh;
-}
-.page {
- display: none;
- min-height: calc(100vh - 70px);
- padding: 80px 7%;
- animation: fadePage 0.45s ease;
-}
-.page.active {
- display: block;
-}
-#home {
- display: flex;
- align-items: center;
- justify-content: center;
- text-align: center;
-}
-/* ================= HOME ================= */
-.home-content {
- width: 100%;
- max-width: 900px;
- margin: auto;
-}
-.profile-wrapper {
- width: 165px;
- height: 165px;
- margin: 0 auto 25px;
- overflow: hidden;
- border-radius: 50%;
- border: 4px solid #00d9ff;
- box-shadow: 0 0 30px rgba(0, 217, 255, 0.35);
-}
-.profile-wrapper img {
- width: 100%;
- height: 100%;
- object-fit: cover;
-}
-.home-content h1 {
- font-size: 44px;
- line-height: 1.2;
- margin-bottom: 15px;
-}
-.home-content h1 span {
- color: #00d9ff;
-}
-.home-content h2 {
- color: #00d9ff;
- font-size: 23px;
- margin-bottom: 20px;
-}
-.home-content p {
- max-width: 750px;
- margin: auto;
- line-height: 1.8;
- color: #c9d4df;
- font-size: 17px;
-}
-/* ================= EDUCATION ================= */
-.education-card {
- max-width: 700px;
- margin: 35px auto 0;
- padding: 25px;
- background: #0d1b2d;
- border: 1px solid rgba(0, 217, 255, 0.25);
- border-radius: 15px;
-}
-.education-card h3 {
- color: #00d9ff;
- margin-bottom: 12px;
- font-size: 21px;
-}
-.education-card p {
- margin: 7px 0;
-}
-/* ================= PAGE TITLE ================= */
-.page-title {
- text-align: center;
- color: #00d9ff;
- font-size: 36px;
- margin-bottom: 40px;
-}
-/* ================= ABOUT ================= */
-.about-content {
- max-width: 850px;
- margin: auto;
- background: #0d1b2d;
- padding: 35px;
- border-radius: 18px;
- border: 1px solid rgba(0, 217, 255, 0.2);
-}
-.about-content p {
- color: #c9d4df;
- line-height: 1.9;
- font-size: 17px;
- margin-bottom: 20px;
-}
-.about-content p:last-child {
- margin-bottom: 0;
-}
-/* ================= SKILLS ================= */
-.skills-container {
- max-width: 1000px;
- margin: auto;
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 25px;
-}
-.skill-card {
- background: #0d1b2d;
- border: 1px solid rgba(0, 217, 255, 0.2);
- border-radius: 18px;
- padding: 30px 20px;
- text-align: center;
- transition: 0.3s;
-}
-.skill-card:hover {
- transform: translateY(-7px);
- border-color: #00d9ff;
- box-shadow: 0 0 25px rgba(0, 217, 255, 0.15);
-}
-.skill-card img {
- width: 75px;
- height: 75px;
- object-fit: contain;
- margin-bottom: 18px;
-}
-.skill-card h3 {
- color: #ffffff;
- font-size: 19px;
- margin-bottom: 10px;
-}
-.skill-card p {
- color: #c9d4df;
- font-size: 14px;
- line-height: 1.6;
- margin-top: 10px;
-}
-/* ================= ADDED SKILL LEVEL ================= */
-.skill-level {
- margin-top: 18px;
- text-align: left;
-}
-.skill-level-info {
- display: flex;
- justify-content: space-between;
- align-items: center;
- margin-bottom: 7px;
- font-size: 13px;
- font-weight: bold;
-}
-.skill-level-text {
- color: #c9d4df;
-}
-.skill-percent {
- color: #00d9ff;
-}
-.skill-progress {
- width: 100%;
- height: 9px;
- background: #172638;
- border-radius: 20px;
- overflow: hidden;
-}
-.skill-progress-fill {
- height: 100%;
- background: #00d9ff;
- border-radius: 20px;
- animation: skillFill 1.2s ease-out;
-}
-@keyframes skillFill {
- from {
- width: 0;
- }
-}
-/* ================= PROJECTS ================= */
-.projects-container {
- max-width: 1000px;
- margin: auto;
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 25px;
-}
-.project-card {
- background: #0d1b2d;
- padding: 30px;
- border-radius: 18px;
- border: 1px solid rgba(0, 217, 255, 0.2);
- transition: 0.3s;
-}
-.project-card:hover {
- transform: translateY(-7px);
- border-color: #00d9ff;
- box-shadow: 0 0 25px rgba(0, 217, 255, 0.15);
-}
-.project-card h3 {
- color: #00d9ff;
- font-size: 22px;
- margin-bottom: 15px;
-}
-.project-card p {
- color: #c9d4df;
- line-height: 1.7;
-}
-/* ================= RESUME DOWNLOAD ================= */
-.resume-section {
- max-width: 850px;
- margin: 35px auto;
- background: #0d1b2d;
- padding: 35px;
- border-radius: 18px;
- border: 1px solid rgba(0, 217, 255, 0.2);
- text-align: center;
-}
-.resume-section h3 {
- color: #00d9ff;
- margin-bottom: 15px;
- font-size: 24px;
-}
-.resume-section p {
- color: #c9d4df;
- margin-bottom: 20px;
- line-height: 1.7;
-}
-.resume-actions {
- display: flex;
- justify-content: center;
- gap: 15px;
- flex-wrap: wrap;
-}
-.resume-button {
- display: inline-block;
- padding: 12px 22px;
- background: #00d9ff;
- color: #07111f;
- border: none;
- border-radius: 25px;
- text-decoration: none;
- font-size: 15px;
- font-weight: bold;
- cursor: pointer;
- transition: 0.3s;
-}
-.resume-button:hover {
- background: #ffffff;
- transform: translateY(-2px);
-}
-@media (max-width: 650px) {
- .resume-section { padding: 25px 20px; }
- .resume-button { width: 100%; }
-}
-/* ================= CONTACT ================= */
-.contact-container {
- max-width: 700px;
- margin: auto;
- background: #0d1b2d;
- padding: 40px;
- border-radius: 18px;
- border: 1px solid rgba(0, 217, 255, 0.2);
- text-align: center;
-}
-.contact-container p {
- font-size: 18px;
- margin: 20px 0;
- color: #c9d4df;
-}
-.contact-container strong {
- color: #00d9ff;
-}
-/* ================= BACK BUTTON ================= */
-.back-button {
- position: fixed;
- left: 25px;
- bottom: 25px;
- padding: 13px 24px;
- background: #00d9ff;
- color: #07111f;
- border: none;
- border-radius: 25px;
- font-size: 17px;
- font-weight: bold;
- cursor: pointer;
- z-index: 999;
- box-shadow: 0 0 20px rgba(0, 217, 255, 0.25);
- transition: 0.3s;
-}
-.back-button:hover {
- transform: translateY(-3px);
- background: #ffffff;
-}
-/* ================= FOOTER ================= */
-footer {
- text-align: center;
- padding: 25px;
- background: #081525;
- color: #8ea0b3;
- font-size: 14px;
-}
-/* ================= ANIMATION ================= */
-@keyframes fadePage {
- from {
- opacity: 0;
- transform: translateY(15px);
- }
- to {
- opacity: 1;
- transform: translateY(0);
- }
-}
-/* ================= TABLET ================= */
-@media (max-width: 900px) {
- nav {
- padding: 0 4%;
- }
- nav ul {
- gap: 18px;
- }
- .skills-container,
- .projects-container {
- grid-template-columns: repeat(2, 1fr);
- }
- .home-content h1 {
- font-size: 38px;
- }
-}
-/* ================= MOBILE ================= */
-@media (max-width: 650px) {
- nav {
- height: auto;
- min-height: 70px;
- padding: 15px 4%;
- flex-direction: column;
- gap: 12px;
- }
- .logo {
- font-size: 22px;
- }
- nav ul {
- gap: 14px;
- flex-wrap: wrap;
- justify-content: center;
- }
- nav ul li a {
- font-size: 15px;
- font-weight: 700;
- text-transform: uppercase;
- }
- main {
- padding-top: 105px;
- }
- .page {
- padding: 55px 5%;
- min-height: calc(100vh - 105px);
- }
- .profile-wrapper {
- width: 135px;
- height: 135px;
- margin-bottom: 20px;
- }
- .home-content h1 {
- font-size: 30px;
- }
- .home-content h2 {
- font-size: 18px;
- }
- .home-content p {
- font-size: 15px;
- }
- .page-title {
- font-size: 30px;
- margin-bottom: 25px;
- }
- .skills-container,
- .projects-container {
- grid-template-columns: 1fr;
- }
- .skill-card {
- padding: 25px 18px;
- }
- .skill-card p {
- font-size: 14px;
- }
- .about-content,
- .contact-container {
- padding: 25px 20px;
- }
- .about-content p {
- font-size: 15px;
- }
- .back-button {
- left: 15px;
- bottom: 15px;
- font-size: 15px;
- padding: 11px 19px;
- }
-}
-/* ================= SMALL PHONE ================= */
-@media (max-width: 400px) {
- nav ul {
- gap: 10px;
- }
- nav ul li a {
- font-size: 13px;
- }
- .profile-wrapper {
- width: 125px;
- height: 125px;
- }
- .home-content h1 {
- font-size: 27px;
- }
-}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#07111f;color:#fff;min-height:100vh}
+nav{position:fixed;top:0;left:0;width:100%;height:70px;background:#081525;display:flex;align-items:center;justify-content:space-between;padding:0 7%;z-index:1000;border-bottom:1px solid rgba(0,217,255,.15)}
+.logo{color:#00d9ff;font-size:25px;font-weight:bold;letter-spacing:1px}
+nav ul{display:flex;list-style:none;gap:28px}
+nav ul li a{text-decoration:none;color:#fff;font-size:19px;font-weight:700;text-transform:uppercase;transition:.3s;cursor:pointer}
+nav ul li a:hover,nav ul li a.active{color:#00d9ff}
+main{padding-top:70px;min-height:100vh}
+.page{display:none;min-height:calc(100vh - 70px);padding:80px 7%;animation:fadePage .45s ease}
+.page.active{display:block}
+#home{display:flex;align-items:center;justify-content:center;text-align:center}
+.home-content{width:100%;max-width:900px;margin:auto}
+.profile-wrapper{width:165px;height:165px;margin:0 auto 25px;overflow:hidden;border-radius:50%;border:4px solid #00d9ff;box-shadow:0 0 30px rgba(0,217,255,.35)}
+.profile-wrapper img{width:100%;height:100%;object-fit:cover}
+.home-content h1{font-size:44px;line-height:1.2;margin-bottom:15px}
+.home-content h1 span{color:#00d9ff}
+.home-content h2{color:#00d9ff;font-size:23px;margin-bottom:20px}
+.home-content p{max-width:750px;margin:auto;line-height:1.8;color:#c9d4df;font-size:17px}
+.education-card{max-width:700px;margin:35px auto 0;padding:25px;background:#0d1b2d;border:1px solid rgba(0,217,255,.25);border-radius:15px}
+.education-card h3{color:#00d9ff;margin-bottom:12px;font-size:21px}
+.education-card p{margin:7px 0}
+.resume-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
+.resume-button{display:inline-block;padding:13px 22px;background:#00d9ff;color:#07111f;border:none;border-radius:25px;font-size:16px;font-weight:bold;text-decoration:none;cursor:pointer;transition:.3s}
+.resume-button:hover{background:#fff;transform:translateY(-3px)}
+.page-title{text-align:center;color:#00d9ff;font-size:36px;margin-bottom:40px}
+.about-content{max-width:850px;margin:auto;background:#0d1b2d;padding:35px;border-radius:18px;border:1px solid rgba(0,217,255,.2)}
+.about-content p{color:#c9d4df;line-height:1.9;font-size:17px;margin-bottom:20px}
+.about-content p:last-child{margin-bottom:0}
+.skills-container{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.skill-card{background:#0d1b2d;border:1px solid rgba(0,217,255,.2);border-radius:18px;padding:30px 20px;text-align:center;transition:.3s}
+.skill-card:hover{transform:translateY(-7px);border-color:#00d9ff;box-shadow:0 0 25px rgba(0,217,255,.15)}
+.skill-card img{width:75px;height:75px;object-fit:contain;margin-bottom:18px}
+.skill-card h3{color:#fff;font-size:19px;margin-bottom:10px}
+.skill-card p{color:#c9d4df;font-size:14px;line-height:1.6;margin-top:10px}
+.skill-level{margin-top:18px;text-align:left}
+.skill-level-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;font-size:13px;font-weight:bold}
+.skill-level-text{color:#c9d4df}
+.skill-percent{color:#00d9ff}
+.skill-progress{width:100%;height:9px;background:#172638;border-radius:20px;overflow:hidden}
+.skill-progress-fill{height:100%;background:#00d9ff;border-radius:20px;animation:skillFill 1.2s ease-out}
+@keyframes skillFill{from{width:0}}
+.projects-container{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.project-card{background:#0d1b2d;padding:30px;border-radius:18px;border:1px solid rgba(0,217,255,.2);transition:.3s}
+.project-card:hover{transform:translateY(-7px);border-color:#00d9ff;box-shadow:0 0 25px rgba(0,217,255,.15)}
+.project-card h3{color:#00d9ff;font-size:22px;margin-bottom:15px}
+.project-card p{color:#c9d4df;line-height:1.7}
+.contact-container{max-width:700px;margin:auto;background:#0d1b2d;padding:40px;border-radius:18px;border:1px solid rgba(0,217,255,.2);text-align:center}
+.contact-container p{font-size:18px;margin:20px 0;color:#c9d4df}
+.contact-container strong{color:#00d9ff}
+.back-button{position:fixed;left:25px;bottom:25px;padding:13px 24px;background:#00d9ff;color:#07111f;border:none;border-radius:25px;font-size:17px;font-weight:bold;cursor:pointer;z-index:999;box-shadow:0 0 20px rgba(0,217,255,.25);transition:.3s}
+.back-button:hover{transform:translateY(-3px);background:#fff}
+footer{text-align:center;padding:25px;background:#081525;color:#8ea0b3;font-size:14px}
+@keyframes fadePage{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){nav{padding:0 4%}nav ul{gap:18px}.skills-container,.projects-container{grid-template-columns:repeat(2,1fr)}.home-content h1{font-size:38px}}
+@media(max-width:650px){nav{height:auto;min-height:70px;padding:15px 4%;flex-direction:column;gap:12px}.logo{font-size:22px}nav ul{gap:14px;flex-wrap:wrap;justify-content:center}nav ul li a{font-size:15px;font-weight:700;text-transform:uppercase}main{padding-top:105px}.page{padding:55px 5%;min-height:calc(100vh - 105px)}.profile-wrapper{width:135px;height:135px;margin-bottom:20px}.home-content h1{font-size:30px}.home-content h2{font-size:18px}.home-content p{font-size:15px}.page-title{font-size:30px;margin-bottom:25px}.skills-container,.projects-container{grid-template-columns:1fr}.skill-card{padding:25px 18px}.skill-card p{font-size:14px}.about-content,.contact-container{padding:25px 20px}.about-content p{font-size:15px}.back-button{left:15px;bottom:15px;font-size:15px;padding:11px 19px}}
+@media(max-width:400px){nav ul{gap:10px}nav ul li a{font-size:13px}.profile-wrapper{width:125px;height:125px}.home-content h1{font-size:27px}}
 </style>
 </head>
 <body>
 <nav>
- <div class="logo">JOMAR.DEV</div>
- <ul>
- <li><a href="#home" class="nav-link active" data-page="home">HOME</a></li>
- <li><a href="#about" class="nav-link" data-page="about">ABOUT</a></li>
- <li><a href="#skills" class="nav-link" data-page="skills">MY SKILLS</a></li>
- <li><a href="#projects" class="nav-link" data-page="projects">PROJECTS</a></li>
- <li><a href="#resume" class="nav-link" data-page="resume">RESUME</a></li>
- <li><a href="#contact" class="nav-link" data-page="contact">CONTACT</a></li>
- </ul>
+<div class="logo">JOMAR.DEV</div>
+<ul>
+<li><a href="#home" class="nav-link active" data-page="home">HOME</a></li>
+<li><a href="#about" class="nav-link" data-page="about">ABOUT</a></li>
+<li><a href="#skills" class="nav-link" data-page="skills">MY SKILLS</a></li>
+<li><a href="#projects" class="nav-link" data-page="projects">PROJECTS</a></li>
+<li><a href="#contact" class="nav-link" data-page="contact">CONTACT</a></li>
+</ul>
 </nav>
 <main>
 <section id="home" class="page active">
- <div class="home-content">
- <div class="profile-wrapper">
- <img src="https://uploads.onecompiler.io/442nn5q5f/1790990293076/1000014132.png"
- alt="Jomar John M. Paquibo">
- </div>
- <h1>
- Hi, I'm <span>Jomar John M. Paquibo</span>
- </h1>
- <h2>
- Web/Mobile Developer / Hardware /
- BS Computer Engineering Student
- </h2>
- <p>
- I am a Computer Engineering student interested in
- web development, mobile development, hardware,
- databases, and modern technology.
- </p>
- <div class="education-card">
- <h3>Education</h3>
- <p><strong>School:</strong> ICCT Colleges</p>
- <p><strong>Year Level:</strong> 4th Year</p>
- <p><strong>Course:</strong> BS Computer Engineering</p>
- </div>
- </div>
+<div class="home-content">
+<div class="profile-wrapper">
+<img src="https://uploads.onecompiler.io/442nn5q5f/1790990293076/1000014132.png" alt="Jomar John M. Paquibo">
+</div>
+<h1>Hi, I'm <span>Jomar John M. Paquibo</span></h1>
+<h2>Web/Mobile Developer / Hardware / BS Computer Engineering Student</h2>
+<p>I am a Computer Engineering student interested in Web development, mobile development, hardware, Databases, and modern technology.</p>
+<div class="education-card">
+<h3>Education</h3>
+<p><strong>School:</strong> ICCT Colleges</p>
+<p><strong>Year Level:</strong> 4th Year</p>
+<p><strong>Course:</strong> BS Computer Engineering</p>
+</div>
+<div class="resume-actions">
+<a class="resume-button" href="Jomar_John_Paquibo_Resume.pdf" download="Jomar_John_Paquibo_Resume.pdf">DOWNLOAD PORTFOLIO</a>
+</div>
+</div>
 </section>
 <section id="about" class="page">
- <h2 class="page-title">ABOUT ME</h2>
- <div class="about-content">
- <p>
- I am Jomar John M. Paquibo, a BS Computer Engineering
- student from ICCT Colleges.
- </p>
- <p>
- I am interested in developing websites and mobile
- applications, working with databases, and creating
- technology-based projects.
- </p>
- <p>
- I also have an interest in hardware development and
- Arduino-based systems. I enjoy learning new technologies
- and applying them to real-world projects.
- </p>
- <p>
- My goal is to continue improving my programming,
- development, and engineering skills while building
- useful and innovative applications.
- </p>
- </div>
+<h2 class="page-title">ABOUT ME</h2>
+<div class="about-content">
+<p>I am Jomar John M. Paquibo, a BS Computer Engineering Student from ICCT Colleges.</p>
+<p>I am interested in developing websites and mobile Applications, working with databases, and creating Technology-based projects.</p>
+<p>I also have an interest in hardware development and Arduino-based systems. I enjoy learning new technologies And applying them to real-world projects.</p>
+<p>My goal is to continue improving my programming, Development, and engineering skills while building Useful and innovative applications.</p>
+</div>
 </section>
 <section id="skills" class="page">
- <h2 class="page-title">MY SKILLS</h2>
- <div class="skills-container">
- <div class="skill-card">
- <img src="https://uploads.onecompiler.io/442nn5q5f/1791018847932/1000014186.jpg"
- alt="HTML">
- <h3>HTML</h3>
- <p>
- Used to create the structure and content
- of modern web pages.
- </p>
- <div class="skill-level">
- <div class="skill-level-info">
- <span class="skill-level-text">LEVEL</span>
- <span class="skill-percent">90%</span>
- </div>
- <div class="skill-progress">
- <div class="skill-progress-fill" style="width:90%;"></div>
- </div>
- </div>
- </div>
- <div class="skill-card">
- <img src="https://uploads.onecompiler.io/442nn5q5f/1791019149765/1000014189.jpg"
- alt="CSS">
- <h3>CSS</h3>
- <p>
- Used for styling, layouts, animations,
- colors, and visual design of websites.
- </p>
- <div class="skill-level">
- <div class="skill-level-info">
- <span class="skill-level-text">LEVEL</span>
- <span class="skill-percent">85%</span>
- </div>
- <div class="skill-progress">
- <div class="skill-progress-fill" style="width:85%;"></div>
- </div>
- </div>
- </div>
- <div class="skill-card">
- <img src="https://uploads.onecompiler.io/442nn5q5f/1791019144209/1000014183.png"
- alt="JavaScript">
- <h3>JAVASCRIPT</h3>
- <p>
- Used to create interactive features,
- functions, and dynamic website behavior.
- </p>
- <div class="skill-level">
- <div class="skill-level-info">
- <span class="skill-level-text">LEVEL</span>
- <span class="skill-percent">80%</span>
- </div>
- <div class="skill-progress">
- <div class="skill-progress-fill" style="width:80%;"></div>
- </div>
- </div>
- </div>
- <div class="skill-card">
- <img src="https://uploads.onecompiler.io/442nn5q5f/1791019155046/1000014190.jpg"
- alt="Database">
- <h3>DATABASE</h3>
- <p>
- Used to store, organize, retrieve,
- and manage application data.
- </p>
- <div class="skill-level">
- <div class="skill-level-info">
- <span class="skill-level-text">LEVEL</span>
- <span class="skill-percent">75%</span>
- </div>
- <div class="skill-progress">
- <div class="skill-progress-fill" style="width:75%;"></div>
- </div>
- </div>
- </div>
- <div class="skill-card">
- <img src="https://uploads.onecompiler.io/442nn5q5f/1791019159408/1000014185.png"
- alt="GitHub">
- <h3>GITHUB</h3>
- <p>
- Used for storing projects, version control,
- collaboration, and code management.
- </p>
- <div class="skill-level">
- <div class="skill-level-info">
- <span class="skill-level-text">LEVEL</span>
- <span class="skill-percent">85%</span>
- </div>
- <div class="skill-progress">
- <div class="skill-progress-fill" style="width:85%;"></div>
- </div>
- </div>
- </div>
- <div class="skill-card">
- <img src="https://uploads.onecompiler.io/442nn5q5f/1791023799459/1000014206.png"
- alt="HARDWARE BUILD PROTOTYPE">
- <h3>HARDWARE BUILD PROTOTYPE</h3>
- <p>
- As part of our Computer Engineering coursework,
- I successfully developed and assembled a physical hardware
- prototype for an affordable, portable heart monitoring system.
- The device is engineered to perform real-time data acquisition
- and processing of critical vital signs to assist in early cardiovascular
- monitoring.
- </p>
- <div class="skill-level">
- <div class="skill-level-info">
- <span class="skill-level-text">LEVEL</span>
- <span class="skill-percent">80%</span>
- </div>
- <div class="skill-progress">
- <div class="skill-progress-fill" style="width:80%;"></div>
- </div>
- </div>
- </div>
- </div>
+<h2 class="page-title">MY SKILLS</h2>
+<div class="skills-container">
+<div class="skill-card">
+<img src="https://uploads.onecompiler.io/442nn5q5f/1791018847932/1000014186.jpg" alt="HTML">
+<h3>HTML</h3><p>Used to create the structure and content Of modern web pages.</p>
+<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">90%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:90%;"></div></div></div>
+</div>
+<div class="skill-card">
+<img src="https://uploads.onecompiler.io/442nn5q5f/1791019149765/1000014189.jpg" alt="CSS">
+<h3>CSS</h3><p>Used for styling, layouts, animations, Colors, and visual design of websites.</p>
+<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">85%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:85%;"></div></div></div>
+</div>
+<div class="skill-card">
+<img src="https://uploads.onecompiler.io/442nn5q5f/1791019144209/1000014183.png" alt="JavaScript">
+<h3>JAVASCRIPT</h3><p>Used to create interactive features, Functions, and dynamic website behavior.</p>
+<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">80%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:80%;"></div></div></div>
+</div>
+<div class="skill-card">
+<img src="https://uploads.onecompiler.io/442nn5q5f/1791019155046/1000014190.jpg" alt="Database">
+<h3>DATABASE</h3><p>Used to store, organize, retrieve, And manage application data.</p>
+<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">75%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:75%;"></div></div></div>
+</div>
+<div class="skill-card">
+<img src="https://uploads.onecompiler.io/442nn5q5f/1791019159408/1000014185.png" alt="GitHub">
+<h3>GITHUB</h3><p>Used for storing projects, version control, Collaboration, and code management.</p>
+<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">85%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:85%;"></div></div></div>
+</div>
+<div class="skill-card">
+<img src="https://uploads.onecompiler.io/442nn5q5f/1791023799459/1000014206.png" alt="HARDWARE BUILD PROTOTYPE">
+<h3>HARDWARE BUILD PROTOTYPE</h3>
+<p>As part of our Computer Engineering coursework, I successfully developed and assembled a physical hardware Prototype for an affordable, portable heart monitoring system. The device is engineered to perform real-time data acquisition and processing of critical vital signs to assist in early cardiovascular Monitoring.</p>
+<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">80%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:80%;"></div></div></div>
+</div>
+</div>
 </section>
 <section id="projects" class="page">
- <h2 class="page-title">PROJECTS</h2>
- <div class="projects-container">
- <div class="project-card">
- <h3>ERECPASS-Mobile Application</h3>
- <p>
- A hospital portal system designed to help manage
- patient information, appointments, medical records,
- laboratory results, medications, announcements,
- and other healthcare-related functions.
- </p>
- </div>
- <div class="project-card">
- <h3>
- HEARTBEAT – Arduino-Based Multi-Parameter Heart Monitoring System
- with Local Alerting
- </h3>
- <p>
- Overview
- HEARTBEAT is a portable and cost-effective heart monitoring device
- built using an Arduino microcontroller system. It is designed to provide
- real-time monitoring of vital signs to assist in early detection and
- continuous tracking of cardiovascular health conditions.
- </p>
- </div>
- <div class="project-card">
- <h3>WEB/MOBILE APPLICATION</h3>
- <p>
- A responsive web application project focused on
- modern user interface design and functionality.
- </p>
- </div>
- </div>
-</section>
-<section id="resume" class="page">
- <h2 class="page-title">MY RESUME</h2>
- <div class="resume-section">
-  <h3>Jomar John M. Paquibo</h3>
-  <p>Download or print my resume.</p>
-  <div class="resume-actions">
-   <a class="resume-button" href="Jomar_John_Paquibo_Resume.pdf" download="Jomar_John_Paquibo_Resume.pdf">DOWNLOAD RESUME</a>
-   <button class="resume-button" type="button" onclick="printResume()">PRINT RESUME</button>
-  </div>
- </div>
+<h2 class="page-title">PROJECTS</h2>
+<div class="projects-container">
+<div class="project-card"><h3>ERECPASS-Mobile Application</h3><p>A hospital portal system designed to help manage Patient information, appointments, medical records, Laboratory results, medications, announcements, And other healthcare-related functions.</p></div>
+<div class="project-card"><h3>HEARTBEAT – Arduino-Based Multi-Parameter Heart Monitoring System With Local Alerting</h3><p>Overview HEARTBEAT is a portable and cost-effective heart monitoring device Built using an Arduino microcontroller system. It is designed to provide Real-time monitoring of vital signs to assist in early detection and Continuous tracking of cardiovascular health conditions.</p></div>
+<div class="project-card"><h3>WEB/MOBILE APPLICATION</h3><p>A responsive web application project focused on Modern user interface design and functionality.</p></div>
+</div>
 </section>
 <section id="contact" class="page">
- <h2 class="page-title">CONTACT ME</h2>
- <div class="contact-container">
- <p>
- <strong>EMAIL:</strong><br>
- jomarjohnpaquibo7@gmail.com
- </p>
- <p>
- <strong>PHONE:</strong><br>
- 09927609792
- </p>
- </div>
+<h2 class="page-title">CONTACT ME</h2>
+<div class="contact-container">
+<p><strong>EMAIL:</strong><br>Jomarjohnpaquibo7@gmail.com</p>
+<p><strong>PHONE:</strong><br>09927609792</p>
+</div>
 </section>
 </main>
-<button id="backButton" class="back-button" style="display:none;">
- BACK ←
-</button>
-<footer>
- © 2026 JOMAR.DEV — PORTFOLIO
-</footer>
+<button id="backButton" class="back-button" style="display:none;">BACK ←</button>
+<footer>© 2026 JOMAR.DEV — PORTFOLIO</footer>
 <script>
-(function () {
-  "use strict";
-
-  function getPageId() {
-    const id = window.location.hash.replace("#", "").trim();
-    return document.getElementById(id) ? id : "home";
-  }
-
-  function showPage(pageId, updateUrl) {
-    const targetPage = document.getElementById(pageId);
-    if (!targetPage) return;
-
-    document.querySelectorAll(".page").forEach(function (page) {
-      page.classList.remove("active");
-      page.style.display = "none";
-    });
-
-    targetPage.style.display = pageId === "home" ? "flex" : "block";
-    targetPage.classList.add("active");
-
-    document.querySelectorAll(".nav-link").forEach(function (link) {
-      link.classList.toggle("active", link.dataset.page === pageId);
-    });
-
-    const backButton = document.getElementById("backButton");
-    if (backButton) {
-      backButton.style.display = pageId === "home" ? "none" : "block";
-    }
-
-    if (updateUrl && window.location.hash !== "#" + pageId) {
-      history.pushState({ page: pageId }, "", "#" + pageId);
-    }
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  document.addEventListener("click", function (event) {
-    const link = event.target.closest(".nav-link");
-    if (link) {
-      event.preventDefault();
-      showPage(link.dataset.page, true);
-      return;
-    }
-
-    const backButton = event.target.closest("#backButton");
-    if (backButton) {
-      event.preventDefault();
-      showPage("home", true);
-    }
-  });
-
-  window.addEventListener("hashchange", function () {
-    showPage(getPageId(), false);
-  });
-
-  window.addEventListener("popstate", function () {
-    showPage(getPageId(), false);
-  });
-
-  window.addEventListener("DOMContentLoaded", function () {
-    showPage(getPageId(), false);
-  });
-})();
-function printResume() {
- const resumeWindow = window.open("Jomar_John_Paquibo_Resume.pdf", "_blank");
- if (!resumeWindow) {
-  alert("Please allow pop-ups to print the resume.");
-  return;
- }
- resumeWindow.onload = function () {
-  resumeWindow.focus();
-  resumeWindow.print();
- };
+const pages=document.querySelectorAll(".page");
+const navLinks=document.querySelectorAll(".nav-link");
+const backButton=document.getElementById("backButton");
+function showPage(pageId,useHistory=true){
+ const targetPage=document.getElementById(pageId);
+ if(!targetPage)return;
+ pages.forEach(page=>{page.classList.remove("active");page.style.display="none";});
+ targetPage.style.display=pageId==="home"?"flex":"block";
+ targetPage.classList.add("active");
+ navLinks.forEach(link=>{link.classList.remove("active");if(link.dataset.page===pageId)link.classList.add("active");});
+ backButton.style.display=pageId==="home"?"none":"block";
+ if(useHistory)history.pushState({page:pageId},"","#"+pageId);
+ window.scrollTo({top:0,behavior:"smooth"});
 }
+navLinks.forEach(link=>link.addEventListener("click",function(event){event.preventDefault();showPage(this.dataset.page);}));
+backButton.addEventListener("click",()=>showPage("home"));
+window.addEventListener("popstate",()=>showPage(window.location.hash.substring(1)||"home",false));
+window.addEventListener("load",()=>showPage(window.location.hash.substring(1)||"home",false));
 </script>
 </body>
 </html>
